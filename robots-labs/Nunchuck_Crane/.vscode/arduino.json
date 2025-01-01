@@ -1,0 +1,12 @@
+{
+    "arduino.path": "C:/Program Files (x86)/Arduino",
+    "sketch": "Nunchuck_Crane.ino",
+    "board": "arduino:avr:nano",
+    "configuration": "cpu=atmega328",
+    "port": "COM4",
+    "arduino.additionalUrls": "C:\\Users\\Eduardo\\Documents\\Arduino\\libraries\\WiiChuck\\src,C:/Users/Eduardo/Documents/Arduino/libraries,C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\variants\\standard",
+    "arduino.logLevel": "error", 
+    "arduino.enableUSBDetection": true,
+    "output": "/build",
+    "debugger": "jlink"
+}

@@ -1,0 +1,118 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "\\usr\\include",
+                "\\usr\\local\\include",
+                "${workspaceRoot}"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "\\usr\\include",
+                    "\\usr\\local\\include",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "macFrameworkPath": [
+                "\\System\\Library\\Frameworks",
+                "\\Library\\Frameworks"
+            ],
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "\\usr\\include",
+                "\\usr\\local\\include",
+                "${workspaceRoot}"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "\\usr\\include",
+                    "\\usr\\local\\include",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.10.25017\\include\\*",
+                "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.15063.0\\um",
+                "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.15063.0\\ucrt",
+                "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.15063.0\\shared",
+                "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.15063.0\\winrt",
+                "${workspaceRoot}",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\EEPROM\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SPI\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SoftwareSerial\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\Wire\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include\\avr\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include\\compat\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include\\util\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\4.*.*\\include\\",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\4.*.*\\include-fixed\\",
+                "C:\\Program Files (x86)\\Arduino\\libraries\\Servo",
+                "C:\\Program Files (x86)\\Arduino\\libraries\\MPU6050",
+                "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
+                "C:/Program Files (x86)/Arduino/libraries/Servo/src",
+                "C:/Program Files (x86)/Arduino/hardware/arduino/avr/libraries/Wire/src",
+                "C:/Users/Eduardo/Documents/Arduino/libraries/WiiChuck/src",
+                "C:\\Program Files (x86)\\Arduino\\libraries\\Stepper\\src"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE"
+            ],
+            "intelliSenseMode": "msvc-x64",
+            "browse": {
+                "path": [
+                    "C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\VC\\Tools\\MSVC\\14.10.25017\\include\\*",
+                    "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.15063.0\\um",
+                    "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.15063.0\\ucrt",
+                    "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.15063.0\\shared",
+                    "C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.15063.0\\winrt",
+                    "${workspaceRoot}",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\EEPROM\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SPI\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\SoftwareSerial\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\libraries\\Wire\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include\\avr\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include\\compat\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\avr\\include\\util\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\4.*.*\\include\\",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\4.*.*\\include-fixed\\",
+                    "C:\\Program Files (x86)\\Arduino\\libraries\\Servo",
+                    "C:\\Program Files (x86)\\Arduino\\libraries\\MPU6050",
+                    "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino",
+                    "C:\\Users\\Eduardo\\Documents\\Arduino\\libraries\\WiiChuck\\",
+                    "C:\\Program Files (x86)\\Arduino\\libraries\\Stepper\\src"
+                ],
+                "limitSymbolsToIncludedHeaders": false,
+                "databaseFilename": ""
+            },
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

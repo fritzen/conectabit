@@ -1,0 +1,27 @@
+Este robô utiliza apenas dois componentes, o LDR e o TRANSISTOR, para identificar a fonte de luz mais brilhante em seu ambiente e se dirigir automaticamente para ela, sem necessidade de programação. É uma ótima escolha para iniciantes na área de robótica ou para aqueles que desejam criar robôs Arduino, começando com modelos mais simples para adquirir os conhecimentos básicos essenciais.
+
+
+
+O robô tem dois LDRs e dois transistores, um para cada motor. Quando a luz brilha nos LDRs, eles reduzem a resistência e permitem que a corrente flua através do transistor, fazendo com que os motores girem e o robô se mova.
+
+Se a luz vier do lado direito, o motor da esquerda será ligado e o robô fará uma curva para a direita. Se a luz vier do lado esquerdo, o motor da direita será ligado e o robô fará uma curva para a esquerda. Se ambos os LDRs receberem luz, o robô seguirá em frente, caso contrário, ele irá parar.
+
+
+
+ Lembre-se de que o sensor da esquerda controlará o motor da direita e o sensor da direita controlará o motor da esquerda.
+
+
+Se os motores estiverem girando em direções opostas, é possível corrigir isso simplesmente trocando a polaridade do fio. Assim, os motores deverão girar na mesma direção e o robô funcionará corretamente.
+
+
+
+Este robô foi projetado exclusivamente para uso INDOOR. Como a luz do sol é a fonte de luz mais intensa, o robô continuará a se mover quando exposto a uma quantidade mínima de luz solar. No entanto, é recomendado não utilizá-lo durante a noite, quando a luz solar não estiver presente.
+
+
+E assim você concluiu a construção do seu primeiro robô. Conecte a bateria e divirta-se controlando-o com uma lanterna ou qualquer outra fonte de luz.
+
+
+
+O diodo de proteção do motor é um componente eletrônico que é utilizado em circuitos de acionamento de motores para protegê-los contra sobretensão e o fluxo de corrente reversa. Quando o motor é desligado, ele pode gerar uma sobretensão que é indesejada e pode danificar outros componentes do circuito. Além disso, quando o motor é desligado, a energia armazenada nas bobinas do motor pode gerar um fluxo de corrente reversa, que também pode causar danos ao circuito.
+
+O diodo de proteção é instalado em paralelo com o motor e é polarizado de tal forma que permite o fluxo de corrente em uma direção e bloqueia o fluxo de corrente reversa. Isso garante que a sobretensão gerada pelo motor durante a desaceleração seja dissipada no próprio diodo e que a corrente reversa seja bloqueada, evitando danos ao circuito.

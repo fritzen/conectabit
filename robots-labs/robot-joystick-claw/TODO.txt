@@ -1,0 +1,3 @@
+INSPIRATION
+https://www.youtube.com/watch?v=3PPENqIaqTg
+https://github.com/fustyles/Arduino/blob/master/ESP32-CAM_SERVO2_Joystick/ESP32-CAM_SERVO2_Joystick.ino
