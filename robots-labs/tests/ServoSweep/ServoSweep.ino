@@ -15,17 +15,38 @@
 Servo myservo;  // create servo object to control a servo
 // twelve servo objects can be created on most boards
 
-
 void setup() {
-  myservo.attach(05);  // attaches the servo on GIO2 to the servo object
+  myservo.attach(10);  // attaches the servo on GIO2 to the servo object
   Serial.begin(9600); 
+  Serial.println("Setup completo. Servo anexado.");
 }
 
 void loop() {
-  int pos;
-  myservo.write(0);
-  delay(3000);
-  myservo.write(180);
-  delay(4000);
+  for (int pos = 0; pos <= 180; pos++) { // Vai de 0 a 180 graus
+    myservo.write(pos); // Define o servo na posição 'pos'
+    Serial.print("Posição atual: ");
+    Serial.println(pos);
+    
+    if (pos == 0 || pos == 90 || pos == 180) {
+      Serial.print("Posição especial: ");
+      Serial.println(pos);
+      delay(2000); // Atraso de 2 segundos nas posições 0, 90 e 180
+    } else {
+      delay(15); // Pequeno atraso para permitir que o servo se mova
+    }
+  }
 
+  for (int pos = 180; pos >= 0; pos--) { // Volta de 180 a 0 graus
+    myservo.write(pos); // Define o servo na posição 'pos'
+    Serial.print("Posição atual: ");
+    Serial.println(pos);
+    
+    if (pos == 0 || pos == 90 || pos == 180) {
+      Serial.print("Posição especial: ");
+      Serial.println(pos);
+      delay(2000); // Atraso de 2 segundos nas posições 0, 90 e 180
+    } else {
+      delay(15); // Pequeno atraso para permitir que o servo se mova
+    }
+  }
 }
