@@ -146,12 +146,7 @@ void RIGHT2(void) {
     digitalWrite(RIGHT_MOTOR_PIN_2, LOW);
 }
 
-void RIGHT(void) {
-    digitalWrite(LEFT_MOTOR_PIN_1, HIGH);
-    digitalWrite(LEFT_MOTOR_PIN_2, LOW);
-    digitalWrite(RIGHT_MOTOR_PIN_1, HIGH);
-    digitalWrite(RIGHT_MOTOR_PIN_2, LOW);
-}
+
 
 void LEFT2(void) {
     digitalWrite(LEFT_MOTOR_PIN_1, LOW);
@@ -159,7 +154,12 @@ void LEFT2(void) {
     digitalWrite(RIGHT_MOTOR_PIN_1, LOW);
     digitalWrite(RIGHT_MOTOR_PIN_2, HIGH);
 }
-
+void RIGHT(void) {
+    digitalWrite(LEFT_MOTOR_PIN_1, HIGH);
+    digitalWrite(LEFT_MOTOR_PIN_2, LOW);
+    digitalWrite(RIGHT_MOTOR_PIN_1, HIGH);
+    digitalWrite(RIGHT_MOTOR_PIN_2, LOW);
+}
 void LEFT(void) {
     digitalWrite(LEFT_MOTOR_PIN_1, LOW);
     digitalWrite(LEFT_MOTOR_PIN_2, HIGH);
