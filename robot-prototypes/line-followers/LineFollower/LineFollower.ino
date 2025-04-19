@@ -14,8 +14,10 @@
 #define RIGHT_MOTOR_PIN_1 10
 #define RIGHT_MOTOR_PIN_2 9
 
-// Limiar para detectar a linha (valor analógico menor indica linha)
-#define THRESHOLD 120
+// Variáveis dinâmicas para threshold de cada sensor
+int leftThreshold = 0;
+int centerThreshold = 0;
+int rightThreshold = 0;
 
 // Leituras dos sensores
 int leftSensorValue = 0;
@@ -29,26 +31,49 @@ bool alertTriggered = false;
 void setup() {
   Serial.begin(9600);
   
-  // Configura os pinos dos motores como saída
+  // Configura pinos dos motores
   pinMode(LEFT_MOTOR_PIN_1, OUTPUT);
   pinMode(LEFT_MOTOR_PIN_2, OUTPUT);
   pinMode(RIGHT_MOTOR_PIN_1, OUTPUT);
   pinMode(RIGHT_MOTOR_PIN_2, OUTPUT);
   
-  // Configura os pinos dos sensores como entrada
+  // Configura pinos dos sensores
   pinMode(LEFT_SENSOR_PIN, INPUT);
   pinMode(CENTER_SENSOR_PIN, INPUT);
   pinMode(RIGHT_SENSOR_PIN, INPUT);
+
+  // Configura LED embutido
+  pinMode(LED_BUILTIN, OUTPUT);
+  digitalWrite(LED_BUILTIN, LOW);
+
+  // Garante motores parados antes da calibração
+  digitalWrite(RIGHT_MOTOR_PIN_1, LOW);
+  digitalWrite(RIGHT_MOTOR_PIN_2, LOW);
+  digitalWrite(LEFT_MOTOR_PIN_1, LOW);
+  digitalWrite(LEFT_MOTOR_PIN_2, LOW);
+  delay(100);
+
+  // Calibração dinâmica com LED piscando
+  calibrateThresholds();
   
+  Serial.print("Left Threshold: ");
+  Serial.print(leftThreshold);
+  Serial.print(" Center Threshold: ");
+  Serial.print(centerThreshold);
+  Serial.print(" Right Threshold: ");
+  Serial.println(rightThreshold);
   Serial.println("START");
-  delay(500);
+  delay(100);
+  digitalWrite(LED_BUILTIN, LOW);
+  delay(100);
+  digitalWrite(LED_BUILTIN, HIGH);
 }
 
 void loop() {
   readSensors();
   
-  // Se não estiver em U-TURN e detectar obstáculo via sensor central, entra em modo U-TURN
-  if (!uTurn && (centerSensorValue < THRESHOLD)) {
+  // Detecta obstáculo e inicia U-TURN
+  if (!uTurn && (centerSensorValue < centerThreshold)) {
     uTurn = true;
     alertTriggered = false;
   }
@@ -63,32 +88,51 @@ void loop() {
   delay(10);
 }
 
+// Calibra thresholds individuais piscando o LED durante cada amostra
+void calibrateThresholds() {
+  long leftSum = 0;
+  long rightSum = 0;
+  
+  for (int i = 0; i < 5; i++) {
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(50);
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(100);
+    
+    leftSum += analogRead(LEFT_SENSOR_PIN);
+    rightSum += analogRead(RIGHT_SENSOR_PIN);
+  }
+  
+  digitalWrite(LED_BUILTIN, LOW);
+  
+  leftThreshold = (leftSum / 5) + 50;
+  centerThreshold = 180;
+  rightThreshold = (rightSum / 5) + 50;
+}
+
 void readSensors() {
   leftSensorValue = analogRead(LEFT_SENSOR_PIN);
   centerSensorValue = analogRead(CENTER_SENSOR_PIN);
   rightSensorValue = analogRead(RIGHT_SENSOR_PIN);
 }
 
-// Controle normal: usa apenas os sensores laterais para seguir a linha
+// Controle normal usando sensores laterais
 void simpleControl() {
-  bool leftOnLine = (leftSensorValue < THRESHOLD);
-  bool rightOnLine = (rightSensorValue < THRESHOLD);
+  bool leftOnLine = (leftSensorValue < leftThreshold);
+  bool rightOnLine = (rightSensorValue < rightThreshold);
   
-  // Se apenas o sensor esquerdo detectar a linha, desliga o motor direito para virar à direita
   if (leftOnLine && !rightOnLine) {
     digitalWrite(RIGHT_MOTOR_PIN_1, LOW);
     digitalWrite(RIGHT_MOTOR_PIN_2, LOW);
     digitalWrite(LEFT_MOTOR_PIN_1, HIGH);
     digitalWrite(LEFT_MOTOR_PIN_2, LOW);
   }
-  // Se apenas o sensor direito detectar a linha, desliga o motor esquerdo para virar à esquerda
   else if (rightOnLine && !leftOnLine) {
     digitalWrite(LEFT_MOTOR_PIN_1, LOW);
     digitalWrite(LEFT_MOTOR_PIN_2, LOW);
     digitalWrite(RIGHT_MOTOR_PIN_1, LOW);
     digitalWrite(RIGHT_MOTOR_PIN_2, HIGH);
   }
-  // Se ambos ou nenhum sensor detectarem a linha, segue em frente
   else {
     digitalWrite(LEFT_MOTOR_PIN_1, HIGH);
     digitalWrite(LEFT_MOTOR_PIN_2, LOW);
@@ -97,23 +141,18 @@ void simpleControl() {
   }
 }
 
-// Procedimento de U-TURN: roda sempre para a direita
-// Ao acionar o sensor direito (alerta) e depois ele deixar de detectar a linha,
-// finaliza o U-TURN e retoma o controle normal.
+// Procedimento de U-TURN girando sempre à direita
 void uTurnRoutine() {
-  // Gira para a direita: liga apenas o motor esquerdo (mesmo comando de virar à direita)
   digitalWrite(LEFT_MOTOR_PIN_1, HIGH);
   digitalWrite(LEFT_MOTOR_PIN_2, LOW);
   digitalWrite(RIGHT_MOTOR_PIN_1, HIGH);
   digitalWrite(RIGHT_MOTOR_PIN_2, LOW);
   
-  // Quando o sensor direito detectar a linha pela primeira vez, ativa o alerta
-  if (!alertTriggered && (rightSensorValue < THRESHOLD)) {
+  if (!alertTriggered && (rightSensorValue < rightThreshold)) {
     alertTriggered = true;
   }
   
-  // Se o alerta já estiver ativo e o sensor direito deixar de detectar a linha, termina o U-TURN
-  if (alertTriggered && (rightSensorValue >= THRESHOLD)) {
+  if (alertTriggered && (rightSensorValue >= rightThreshold)) {
     uTurn = false;
     alertTriggered = false;
   }
@@ -127,5 +166,11 @@ void printDebugInfo() {
   Serial.print(" | R: ");
   Serial.print(rightSensorValue);
   Serial.print(" | uTurn: ");
-  Serial.println(uTurn);
+  Serial.print(uTurn);
+  Serial.print(" | LT: ");
+  Serial.print(leftThreshold);
+  Serial.print(" | CT: ");
+  Serial.print(centerThreshold);
+  Serial.print(" | RT: ");
+  Serial.println(rightThreshold);
 }
