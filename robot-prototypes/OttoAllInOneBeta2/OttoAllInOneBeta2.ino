@@ -15,7 +15,7 @@
 // Ajuste fino dos servos: esses parâmetros definem os valores de calibração para os servos,
 // permitindo ajustes finos para a posição das pernas e pés do robô. Eles podem ser modificados
 // caso o Otto não esteja andando em linha reta ou precise de correções de calibração.
-#define TRIM_LEFT_LEG   -0    // Ajuste fino para a posição do servo da perna esquerda
+#define TRIM_LEFT_LEG   18    // Ajuste fino para a posição do servo da perna esquerda
 #define TRIM_RIGHT_LEG  0     // Ajuste fino para a posição do servo da perna direita
 #define TRIM_LEFT_FOOT  0      // Ajuste fino para a posição do servo do pé esquerdo
 #define TRIM_RIGHT_FOOT -0     // Ajuste fino para a posição do servo do pé direito
