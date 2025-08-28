@@ -1,8 +1,0 @@
-{
-    "sketch": "CINEMA.ino",
-    "port": "COM5",
-    "board": "nano",
-    "output": "../build",
-    "debugger": "jlink",
-    "prebuild": "bash prebuild.sh"
-}
