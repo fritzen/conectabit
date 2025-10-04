@@ -28,10 +28,10 @@ RIGHT FOOT 5==>   -----   ------  <== LEFT FOOT 4
 #define PIN_RIGHT_FOOT 5 
  
 
-#define TRIM_LEFT_LEG   -20
-#define TRIM_RIGHT_LEG  -50
-#define TRIM_LEFT_FOOT  32
-#define TRIM_RIGHT_FOOT 42
+#define TRIM_LEFT_LEG   5
+#define TRIM_RIGHT_LEG  0
+#define TRIM_LEFT_FOOT  0
+#define TRIM_RIGHT_FOOT -15
 
 Otto Otto;  //This is Otto!
 
@@ -53,9 +53,11 @@ void setup()
 ///////////////////////////////////////////////////////////////////
 void loop() 
 {
+
+   //return;
   bool obstacleDetected = false;
   
-  obstacleDetected = obstacleDetector(); 
+  obstacleDetected = false;//obstacleDetector(); 
   
    if(obstacleDetected)
    { 
@@ -69,7 +71,7 @@ void loop()
     }        
     else
    { 
-          Otto.walk(-1,1000,BACKWARD);  
+          Otto.walk(1,900,BACKWARD);
     }          
  }  
 
